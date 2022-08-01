@@ -1,0 +1,50 @@
+.card__li {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.card__li + .card__li {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.card__div {
+  padding: 0 24px;
+}
+
+.card__header {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 26px;
+  color: #111517;
+}
+
+.card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card__text {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #111517;
+}
+
+.card__text-span {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #111517;
+}
+
+.card__img {
+  border-radius: 10px;
+}

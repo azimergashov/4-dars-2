@@ -1,0 +1,28 @@
+.hero{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+
+}
+
+.hero__form{
+
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.hero__form-input{
+    padding: 18px 34px;
+}
+
+.hero__form-select{
+    padding: 18px 34px;
+}
+
+.hero__form-select + .hero__form-select{
+    margin-top: 8px;
+}
