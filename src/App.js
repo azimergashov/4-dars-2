@@ -1,33 +1,47 @@
-import { Header } from "./components";
-import { Hero } from "./components";
-import { List } from "./components";
-import { Card } from "./components";
-import { useRef, useEffect, useState } from "react";
 import "./app.scss";
+import { Header } from "./components";
+import { useEffect, useState } from "react";
+import {Routes, Route } from 'react-router-dom'
+import { SingleCountry } from "./Pages/SingleCountry";
+import {Country} from './Pages/Country'
+
 
 function App() {
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [sellect, setSellect] = useState("");
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((error) => console.log(error));
-  }, []);
-
-  console.log(data);
+    if (search.length) {
+      fetch(`https://restcountries.com/v3.1/name/${search}`)
+        .then((res) => res.json())
+        .then((data) => setData(data))
+        .catch((error) => console.log(error));
+    } else if (sellect.length && sellect !== "All") {
+      fetch(`https://restcountries.com/v3.1/region/${sellect}`)
+        .then((res) => res.json())
+        .then((data) => setData(data))
+        .catch((error) => console.log(error));
+    } else {
+      fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then((data) => setData(data))
+        .catch((error) => console.log(error));
+    }
+  }, [search, sellect]);
 
   return (
     <div className="App">
       <div className="div">
         <Header />
 
-        <Hero />
+        <Routes>
+          <Route path="/" element = {<Country data ={data} setSellect ={setSellect} setSearch ={setSearch}/>}/>
 
-        <ul className="d-flex alig-items-center justify-content-between list ">
-          {data.length &&
-            data.map((el) => <Card key={el.name.common} el={el} />)}
-        </ul>
+          <Route path="/countries/:name" element= {<SingleCountry/>}/>
+        </Routes>
+
+
       </div>
     </div>
   );
