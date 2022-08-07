@@ -23,7 +23,7 @@ export const SingleCountry = () => {
       <button onClick={() => navigate(-1)}> prev</button>
       {country.length && country.map(el => ( <div className="d-flex align-items-center p-5">
 
-        <img className="mx-5" src={el.flags.svg} alt="el.name.common" width={500} height={400}/>
+        <img className="mx-5" src={el.flags.svg} alt="el.name.common" width={560} height={400}/>
         <div className="ms-5">
             <h1>{name}</h1>
             <div className="d-flex">
