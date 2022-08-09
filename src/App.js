@@ -1,15 +1,18 @@
 import "./app.scss";
 import { Header } from "./components";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState, } from "react";
 import {Routes, Route } from 'react-router-dom'
 import { SingleCountry } from "./Pages/SingleCountry";
 import {Country} from './Pages/Country'
+import {ThemeContext} from './context/ThemeContext'
+
 
 
 function App() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [sellect, setSellect] = useState("");
+  const {theme} = useContext(ThemeContext)
 
   useEffect(() => {
     if (search.length) {
@@ -30,9 +33,11 @@ function App() {
     }
   }, [search, sellect]);
 
+
+
   return (
     <div className="App">
-      <div className="div">
+      <div className={`${theme} div`}>
         <Header />
 
         <Routes>

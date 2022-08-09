@@ -1,8 +1,15 @@
+@import '../../style/varible.scss';
+
 .hero{
     margin-top: 50px;
     margin-bottom: 50px;
 
 
+}
+
+.Dark{
+    background-color: $dark-mode;
+    color: #FFFF;
 }
 
 .hero__form{

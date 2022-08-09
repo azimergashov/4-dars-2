@@ -1,5 +1,7 @@
 import "./hero.scss";
 import { useRef } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
+import { useContext } from "react";
 
 export const Hero = ({ setSellect, setSearch }) => {
   const elInput = useRef('')
@@ -14,19 +16,21 @@ export const Hero = ({ setSellect, setSearch }) => {
 
   }
 
+  const {theme } = useContext(ThemeContext)
+
   return (
-    <div className="hero  px-5">
+    <div className={`${theme} hero  px-5`}>
       <form onSubmit={catchInputValue} className="hero__form form px-5">
         <input
           ref={elInput}
-          className="hero__form-input form-control w-100 "
+          className={`${theme} hero__form-input form-control w-100 `}
           type="search"
           placeholder="🔍   Search for a country…"
         />
 
         <select
           onChange={catchSelect}
-          className="hero__form-select form-select w-25 ms-5"
+          className={`${theme} hero__form-select form-select w-25 ms-5`}
         >
           <option className="hero__form-select-option" value="All">
             All

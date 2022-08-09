@@ -1,10 +1,13 @@
 import "./card.scss";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
+import { useContext } from "react";
 
 export const Card = ({ el }) => {
+  const {theme} = useContext(ThemeContext)
   return (
     <Link to = {"/countries/" +el.name.common }>
-      <li className="card__li">
+      <li className={`card__li ${theme} `}>
         <img
           className="card__img"
           src={el.flags.svg}
